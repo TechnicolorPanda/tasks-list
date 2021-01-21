@@ -1,17 +1,16 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import uniqid from 'uniqid';
 
-class Overview extends Component {
-    constructor(props) {
-        super(props)
-    }
+const Overview = (props) => {
+  const { taskArray } = props;
 
-    render() {
-        return (
-            <div className = 'tasks'>
-                <h2>{this.props.task}</h2>
-            </div>
-        )
-    }
-}
+  return (
+    <ul>
+        {taskArray.map((task) => {
+            return <li key={uniqid()}>{task}</li>;
+        })}
+    </ul>
+  );
+};
 
 export default Overview;
