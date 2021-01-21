@@ -1,13 +1,16 @@
-import React, { Component } from 'react';
-import uniqid from 'uniqid';
+import React from 'react';
+// import uniqid from 'uniqid';
 
 const Overview = (props) => {
   const { taskArray } = props;
 
   return (
     <ul>
-        {taskArray.map((task) => {
-            return <li key={uniqid()}>{task}</li>;
+        {taskArray.map((task, i) => {
+            let keyValue = i + 1;
+            console.log(i);
+            return <li key = {keyValue}> {keyValue } {task}</li>
+            // return <li key={uniqid()}>{task}</li>;
         })}
     </ul>
   );
