@@ -1,16 +1,18 @@
 import React from 'react';
-// import uniqid from 'uniqid';
+import uniqid from 'uniqid';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash, faEdit } from '@fortawesome/free-solid-svg-icons';
 
 const Overview = (props) => {
   const { taskArray } = props;
+  const trashIcon = <FontAwesomeIcon icon = {faTrash} />
+  const editIcon = <FontAwesomeIcon icon = {faEdit} />
 
   return (
     <ul>
         {taskArray.map((task, i) => {
-            let keyValue = i + 1;
-            console.log(i);
-            return <li key = {keyValue}> {keyValue } {task}</li>
-            // return <li key={uniqid()}>{task}</li>;
+            let listNumber = i + 1;
+            return <li key={uniqid()}>{listNumber}  {task}  {trashIcon}  {editIcon}</li>;
         })}
     </ul>
   );
