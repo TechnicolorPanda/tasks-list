@@ -1,0 +1,23 @@
+.main-body {
+    display: flex;
+    flex-direction: column;
+    background-color: #82acd6;
+    min-height: 80rem;
+  }
+  
+  .body {
+    display: flex;
+    flex-direction: column; 
+    font-size: larger;
+    background-color: #82acd6;
+    font-size: 24px;
+  }
+  
+  ul {
+      list-style-type: none;
+      padding: 3rem;
+  }
+
+  li {
+      padding: 5px;
+  }

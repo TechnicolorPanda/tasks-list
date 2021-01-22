@@ -1,0 +1,26 @@
+.main-body {
+  display: flex;
+  flex-direction: column;
+  background-color: #82acd6;
+  min-height: 80rem;
+}
+
+.body {
+  display: flex;
+  flex-direction: column; 
+  font-size: larger;
+  background-color: #82acd6;
+  font-size: 24px;
+}
+
+input {
+    padding: 10px;
+    margin: 24px;
+}
+
+form {
+    display: block;
+    align-items: center;
+    text-align: center;
+}
+
