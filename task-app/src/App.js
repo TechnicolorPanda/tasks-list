@@ -26,7 +26,7 @@ class App extends Component {
     });
   }
 
-  deleteItem = (index, event) => {
+  deleteUser = (index) => {
     const taskArray = Object.assign([], this.state.taskArray);
     taskArray.splice(index, 1);
     this.setState({taskArray:taskArray});
@@ -51,9 +51,9 @@ class App extends Component {
           </button>
         </form>
         <Overview 
-          deleteEvent = {this.deleteUser.bind(this, event)}
+          deleteEvent={this.deleteUser.bind(this)}
           taskArray = {taskArray} />
-      </div>
+       </div>
     );
   }
 }

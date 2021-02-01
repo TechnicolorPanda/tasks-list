@@ -6,7 +6,7 @@ import { faTrash, faEdit } from '@fortawesome/free-solid-svg-icons';
 
 const Overview = (props) => {
   const { taskArray } = props;
-  const [tasks, setTasks] = React.useState(taskArray);
+  // const [taskArray, setTasks] = React.useState(taskArray);
   const trashIcon = <FontAwesomeIcon icon = {faTrash} />
   const editIcon = <FontAwesomeIcon icon = {faEdit} />
 
