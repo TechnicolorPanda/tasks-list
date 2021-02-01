@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import Overview from './components/Overview';
 import './App.css';
@@ -27,13 +26,20 @@ class App extends Component {
     });
   }
 
+  deleteItem = (index, event) => {
+    const taskArray = Object.assign([], this.state.taskArray);
+    taskArray.splice(index, 1);
+    this.setState({taskArray:taskArray});
+}
+
   render() {
 
     const { task, taskArray } = this.state;
 
     return (
       <div>
-        <form onSubmit = {this.onSubmitTask}>
+          <h1>Task Manager</h1>
+          <form onSubmit = {this.onSubmitTask}>
           <label htmlFor = 'taskInput'>Enter task</label>
           <input 
             onChange = {this.handleChange}
@@ -44,7 +50,9 @@ class App extends Component {
             Submit
           </button>
         </form>
-        <Overview taskArray = {taskArray} />
+        <Overview 
+          deleteEvent = {this.deleteUser.bind(this, event)}
+          taskArray = {taskArray} />
       </div>
     );
   }
