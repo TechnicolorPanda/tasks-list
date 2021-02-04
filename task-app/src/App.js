@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import Overview from "./components/Overview";
 import './App.css';
 import uniqid from 'uniqid';
@@ -8,9 +8,9 @@ class App extends Component {
     super();
 
     this.state = {
-      task: '',
-      idKey: uniqid(),
       taskArray: [],
+      task: '',
+      submit: false,
     };
   }
 
@@ -26,21 +26,29 @@ class App extends Component {
 
     this.setState({
       taskArray: [
-        {idKey: uniqid()},
         {task: this.state.task},
       ]
     });
 
     this.setState({
-      taskArray: this.state.taskArray.concat(this.state.taskArray),
+      taskArray: this.state.taskArray.concat(this.state.task),
       task: '',
-      idKey: uniqid(),
+      submit: true,
     });
-    console.log(this.state);
+    console.log(this.state.taskArray);
   };
 
+  //TODO: correct index number to delete right item
+
+  deleteTask = (index) => {
+    console.log(index);
+    const taskArray = Object.assign([], this.state.taskArray);
+    taskArray.splice(index, 1);
+    this.setState({taskArray: taskArray});
+  }
+
   render() {
-    const { task, taskArray } = this.state;
+    const { task, taskArray, submit } = this.state;
 
     return (
       <div>
@@ -54,10 +62,21 @@ class App extends Component {
           />
           <button type="submit">Add Task</button>
         </form>
-        <Overview taskArray={taskArray} />
-      </div>
+
+      { submit 
+        ? taskArray.map((task, index) => {
+        return(<div key = {uniqid()}><Overview 
+          deleteEvent={this.deleteTask.bind(this)}
+          task = {task} 
+          number = {index}
+          id = {uniqid()}
+        /></div>)
+        })
+        : null
+      }
+          </div>
     );
-  }
+  };
 }
 
 export default App;
