@@ -23,8 +23,8 @@ const Overview = (props) => {
         |
         {' '}
         {task}
-        <button onClick={props.deleteEvent}>{trashIcon}</button>
-        <button>{editIcon}</button>
+        <button onClick = {props.deleteEvent}>{trashIcon}</button>
+        <button onClick = {props.editEvent}>{editIcon}</button>
       </li>
     </ul>
   );

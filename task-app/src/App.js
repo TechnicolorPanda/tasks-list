@@ -35,6 +35,16 @@ const App = () => {
     setTaskArray(taskArray => taskArray.filter((taskArray, i) => i !== index));
   }
 
+  // TODO: display task to be edited in form box
+
+  const onEditTask = (index) => {
+    let selectedTask = taskArray.filter((taskArray, i) => i === index);
+    setTask(selectedTask);
+
+    //removes original instance of task item to be edited
+    setTaskArray(taskArray => taskArray.filter((taskArray, i) => i !== index));
+  }
+
   return (
     <div>
       <form onSubmit={onSubmitTask}>
@@ -51,7 +61,8 @@ const App = () => {
       {submit 
         ? taskArray.map((task, index) => {
           return(<Overview key = {uniqid()}
-            deleteEvent={deleteTask.bind(task, index)}
+            deleteEvent = {deleteTask.bind(task, index)}
+            editEvent = {onEditTask.bind(task, index)}
             task = {task} 
             number = {index}
           />
