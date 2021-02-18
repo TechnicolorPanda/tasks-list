@@ -9,8 +9,6 @@ const Overview = (props) => {
     number,
   } = props;
 
-  console.log(task);
-
   const trashIcon = <FontAwesomeIcon icon = {faTrash} />
   const editIcon = <FontAwesomeIcon icon = {faEdit} />
 

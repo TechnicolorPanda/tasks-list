@@ -44,7 +44,8 @@ const App = () => {
 
   return (
     <div>
-
+      <h1>Create Your Task List</h1>
+      
       {/* creates form to enter in new task */}
 
       <form onSubmit={onSubmitTask}>
@@ -55,7 +56,7 @@ const App = () => {
           type="text"
           id="taskInput"
         />
-        <button type="submit">Add Task</button>
+        <button type = 'submit' className = 'submit'>Add Task</button>
       </form>
 
       {/* passes each array item to Overview component for rendering */}

@@ -15,11 +15,12 @@
   
   ul {
       list-style-type: none;
-      padding: 5px;
+      padding: 0px;
   }
 
   li {
-      padding: 5px;
+      padding: 0px;
+      margin-left: 8%;
   }
 
   svg {
@@ -30,4 +31,8 @@
     padding: 8px;
     background-color: #82acd6;
     border: none;
+  }
+
+  button:hover {
+    background-color: #b0d0f0
   }
