@@ -9,24 +9,21 @@ const App = () => {
 
   const [taskArray, setTaskArray] = useState([]);
   const [task, setTask] = useState('');
-  const [submit, setSubmit] = useState(false);
 
   // handles input change upon input
 
   const handleChange = (event) => {
     event.preventDefault();  
     setTask(event.target.value);
-    setSubmit(false);
   };
 
-  // creates array to pass to Overview component
+  // creates array of task items to pass to Overview component
 
   const onSubmitTask = (event) => {
     event.preventDefault();
     setTask(event.target.value);
     setTaskArray(taskArray => taskArray.concat(task));
     setTask('');
-    setSubmit(true);
   };
 
   // deletes task up selection
@@ -35,18 +32,21 @@ const App = () => {
     setTaskArray(taskArray => taskArray.filter((taskArray, i) => i !== index));
   }
 
-  // TODO: display task to be edited in form box
+  // edits target task upon selection
 
   const onEditTask = (index) => {
     let selectedTask = taskArray.filter((taskArray, i) => i === index);
     setTask(selectedTask);
 
-    //removes original instance of task item to be edited
+    //removes original instance of task item to be edited to prevent duplicate
     setTaskArray(taskArray => taskArray.filter((taskArray, i) => i !== index));
   }
 
   return (
     <div>
+
+      {/* creates form to enter in new task */}
+
       <form onSubmit={onSubmitTask}>
         <label htmlFor="taskInput">Enter task</label>
         <input
@@ -58,17 +58,17 @@ const App = () => {
         <button type="submit">Add Task</button>
       </form>
 
-      {submit 
-        ? taskArray.map((task, index) => {
+      {/* passes each array item to Overview component for rendering */}
+
+      {taskArray.map((task, index) => {
           return(<Overview key = {uniqid()}
             deleteEvent = {deleteTask.bind(task, index)}
             editEvent = {onEditTask.bind(task, index)}
             task = {task} 
             number = {index}
           />
-        )})
-        : null
-      }
+        )
+      })}
     </div>
   );
 }
